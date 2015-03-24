@@ -104,9 +104,9 @@
     header_extra_file = None
 
     if settings.FEATURES['IS_EDX_DOMAIN'] and not is_microsite():
-        header_file = microsite.get_template_path('navigation-edx.html')
-    else:
         header_file = microsite.get_template_path('navigation.html')
+    else:
+        header_file = microsite.get_template_path('navigation-edx.html')
 
     google_analytics_file = microsite.get_template_path('google_analytics.html')
 
@@ -154,9 +154,9 @@
         if theme_enabled() and not is_microsite():
           footer_file = 'theme-footer.html'
         elif settings.FEATURES.get('IS_EDX_DOMAIN', False) and not is_microsite():
-          footer_file = microsite.get_template_path('footer-edx-new.html')
-        else:
           footer_file = microsite.get_template_path('footer.html')
+        else:
+          footer_file = microsite.get_template_path('footer-edx-new.html')
       %>
       <%include file="${footer_file}" />
     </%block>
